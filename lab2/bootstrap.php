@@ -1,0 +1,8 @@
+<?php
+/**
+ * Bootstrap file
+ * 
+ */
+
+
+?>
