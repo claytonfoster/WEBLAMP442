@@ -23,16 +23,10 @@ abstract class Vehicle implements VehicleInterface
      protected $_make;
 
      /**
-      * Number of doors
-      * @var int
+      * Vehicle model
+      * @var string
       */
-     protected $_numberOfDoors;
-
-     /** 
-      * Number of wheels
-      * @var int
-      */
-     protected $_numberOfWheels;
+     protected $_model;
 
      /**
       * Engine type of vehicle
@@ -44,37 +38,77 @@ abstract class Vehicle implements VehicleInterface
       * Return the vehicle make
       * @return string
       */
-     abstract public function getVehicleMake();
+     public function getVehicleMake() {
+	  return $this->_make;
+     } 
+
+     /**
+      * Set the vehicle make
+      */
+     public function setMake($make) {
+	  $this->_make = $make;
+     }
+
+     /**
+      * Return the vehicle model
+      * @return string
+      */
+     public function getVehicleModel() {
+	  return $this->_model;
+     } 
+
+     /**
+      * Set the vehicle model
+      */
+     public function setModel($model) {
+	  $this->_model = $model;
+     }
 
      /**
       * Return the number of doors
       * @return int
       */
-     abstract public function getNumberOfDoors();
+     public function getNumberOfDoors() {
+	  return $this->_numberOfDoors;
+     }
 
      /**
-      * Return the number of wheels
-      * @return int
+      * Set the number of doors
       */
-     abstract public function getNumberOfWheels();
-
-     /**
-      * Return the engine type
-      * @return string
-      */
-     abstract public function getEngineType();
-     
+     public function setNumberOfDoors($doors) {
+	  $this->_doors = $doors;
+     }
+ 
      /**
       * Set the year of manufacture
       */
-     abstract public function setYear($year);
+     public function setYear($year) {
+	  $this->_year = $year;
+     }
 
      /**
       * Return the year of manufacture
       * @return int
       */
-     abstract public function getYear();
-}
+     public function getYear() {
+	  return $this->_year;
+     }
 
+     /**
+      * Return the engine type
+      * @return string
+      */
+     public function getEngineType() {
+	  return $this->_engineType;
+     }
+
+     /**
+      * Set the engine type
+      */
+     public function setEngineType($engineType) {
+	  $this->_engineType = $engineType;
+     }
+
+}
 
 ?>

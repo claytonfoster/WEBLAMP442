@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Tests\Src;
 use \Src\Civic as Civic;
 
 /**
@@ -13,7 +13,10 @@ class testCivic extends \PHPUnit_Framework_TestCase {
       *
       */
 
+
+
      public function testhonk() {
-	  $this->assertEquals('honk honk', Civic::honk());
+	  $civic = new Civic();
+	  $this->assertEquals('honk honk', $civic->honk());
      }
 }

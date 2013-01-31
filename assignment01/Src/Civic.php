@@ -11,8 +11,20 @@ require_once('Car.php');
 class Civic extends Car {
 
      /**
-      * The methods in Car are inherited and haven't been duplicated in the Civic class
+      * Constructor to build a Civic
+      * @param $make		   string - make of car
+      * @param $model		   string - model of car
+      * @param $year		   integer - model year
+      * @param $numberOfDoors	   integer - number of doors
+      * @param $engineType	   string - engine type
       */
+     public function __construct($year = null, $numberOfDoors = 4, $engineType = 'gas') {
+	  $this->setMake = 'Honda';
+	  $this->setModel = 'Civic';
+	  $this->setYear = $year;
+	  $this->setNumberOfDoors = $numberOfDoors;
+	  $this->setEngineType = $engineType;
+     }
 
      /**
       * Honk method for a Civic - return 'honk honk'
@@ -22,23 +34,9 @@ class Civic extends Car {
 	  return "honk honk";
      }
 
-     /**
-      * Constructor to build a Civic
-      * @param $numberOfDoors	   integer - number of doors
-      * @param $numberOfWheels	   integer - number of wheels
-      * @param $engineType	   string - engine type
-      */
-     public function __construct($make= 'Honda', $numberOfDoors = 4, $numberOfWheels = 4, $engineType = 'hybrid') {
-	  $this->_make = $make;
-	  $this->_numberOfDoors = $numberOfDoors;
-	  $this->_numberOfWheels = $numberOfWheels;
-	  $this->_engineType = $engineType;
-     }
-
 }
 
-//$civic = new Civic();
-//$civic->setYear(2012);
+//$civic = new Civic(2012);
 
 //var_dump ($civic);
 //var_dump ($civic->getEngineType());
