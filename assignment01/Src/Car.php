@@ -1,5 +1,7 @@
 <?php
 
+namespace Src;
+
 require_once('Vehicle.php');
 
 /**

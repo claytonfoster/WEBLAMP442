@@ -1,5 +1,7 @@
 <?php
 
+namespace Src;
+
 require_once('Car.php');
 
 /**
@@ -35,15 +37,15 @@ class Civic extends Car {
 
 }
 
-$civic = new Civic();
-$civic->setYear(2012);
+//$civic = new Civic();
+//$civic->setYear(2012);
 
-var_dump ($civic);
-var_dump ($civic->getEngineType());
-var_dump ($civic->getNumberOfDoors());
-var_dump ($civic->getVehicleMake());
-var_dump ($civic->honk());
-var_dump ($civic->getEngineType());
-var_dump ($civic->getYear());
+//var_dump ($civic);
+//var_dump ($civic->getEngineType());
+//var_dump ($civic->getNumberOfDoors());
+//var_dump ($civic->getVehicleMake());
+//var_dump ($civic->honk());
+//var_dump ($civic->getEngineType());
+//var_dump ($civic->getYear());
 
 ?>
