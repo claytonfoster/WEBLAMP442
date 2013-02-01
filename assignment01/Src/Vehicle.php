@@ -29,6 +29,12 @@ abstract class Vehicle implements VehicleInterface
      protected $_model;
 
      /**
+      * Number of doors
+      * @var int
+      */
+     protected $_numberOfDoors;
+
+     /**
       * Engine type of vehicle
       * @var string
       */
@@ -38,7 +44,7 @@ abstract class Vehicle implements VehicleInterface
       * Return the vehicle make
       * @return string
       */
-     public function getVehicleMake() {
+     public function getMake() {
 	  return $this->_make;
      } 
 
@@ -53,7 +59,7 @@ abstract class Vehicle implements VehicleInterface
       * Return the vehicle model
       * @return string
       */
-     public function getVehicleModel() {
+     public function getModel() {
 	  return $this->_model;
      } 
 
@@ -69,7 +75,7 @@ abstract class Vehicle implements VehicleInterface
       * @return int
       */
      public function getNumberOfDoors() {
-	  return $this->_numberOfDoors;
+	  return $this->_doors;
      }
 
      /**
@@ -109,6 +115,15 @@ abstract class Vehicle implements VehicleInterface
 	  $this->_engineType = $engineType;
      }
 
+     /**
+      * Honk method
+      * By default returns on empty string
+      * @return string
+      */
+     public function honk() {
+	  return "";
+     }
 }
+
 
 ?>

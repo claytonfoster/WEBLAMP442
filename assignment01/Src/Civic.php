@@ -19,11 +19,11 @@ class Civic extends Car {
       * @param $engineType	   string - engine type
       */
      public function __construct($year = null, $numberOfDoors = 4, $engineType = 'gas') {
-	  $this->setMake = 'Honda';
-	  $this->setModel = 'Civic';
-	  $this->setYear = $year;
-	  $this->setNumberOfDoors = $numberOfDoors;
-	  $this->setEngineType = $engineType;
+	  $this->setMake('Honda');
+	  $this->setModel('Civic');
+	  $this->setYear($year);
+	  $this->setNumberOfDoors($numberOfDoors);
+	  $this->setEngineType($engineType);
      }
 
      /**
@@ -36,14 +36,13 @@ class Civic extends Car {
 
 }
 
-//$civic = new Civic(2012);
+$civic = new Civic(2012);
 
 //var_dump ($civic);
-//var_dump ($civic->getEngineType());
-//var_dump ($civic->getNumberOfDoors());
-//var_dump ($civic->getVehicleMake());
-//var_dump ($civic->honk());
-//var_dump ($civic->getEngineType());
-//var_dump ($civic->getYear());
+var_dump ($civic->getNumberOfDoors());
+var_dump ($civic->getMake());
+var_dump ($civic->honk());
+var_dump ($civic->getEngineType());
+var_dump ($civic->getYear());
 
 ?>
