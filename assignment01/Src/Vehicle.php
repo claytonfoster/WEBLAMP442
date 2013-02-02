@@ -75,14 +75,14 @@ abstract class Vehicle implements VehicleInterface
       * @return int
       */
      public function getNumberOfDoors() {
-	  return $this->_doors;
+	  return $this->_numberOfDoors;
      }
 
      /**
       * Set the number of doors
       */
      public function setNumberOfDoors($doors) {
-	  $this->_doors = $doors;
+	  $this->_numberOfDoors = $doors;
      }
  
      /**

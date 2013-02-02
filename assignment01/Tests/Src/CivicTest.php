@@ -18,7 +18,7 @@ class testCivic extends \PHPUnit_Framework_TestCase {
 	  $this->assertEquals('Honda', $civic->getMake());
 	  $this->assertEquals('Civic', $civic->getModel());
 	  $this->assertObjectHasAttribute('_year', $civic);
-	  $this->assertObjectHasAttribute('_doors', $civic);
+	  $this->assertObjectHasAttribute('_numberOfDoors', $civic);
 	  $this->assertObjectHasAttribute('_engineType', $civic);
 	  return $civic;     
      }
