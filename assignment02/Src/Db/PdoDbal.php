@@ -21,28 +21,75 @@ class PdoDbal {
 	  $this->dsn = $dsn;
 	  $this->user = $user;
 	  $this->password = $password;
-          try {
-	  $this->conn = new PDO($dsn, $user, $password);
-	       echo 'connected';
-          } catch (PDOException $e) {
+     }
+
+     /*
+      * connect to the database
+      */
+
+     public function connect() {
+	  try {
+	       $this->conn = new PDO($this->dsn, $this->user, $this->password);
+	       echo 'PDO connection object created';
+	  } catch (PDOException $e) {
 	       echo 'Connection Failed: ' . $e->getMessage();
 	  }
 	  return $this->conn;
      }
 
+     /*
+      * disconnect from the database - not generally needed when using PDO
+      */
+
+     public function disconnect() {
+	  $this->conn = null;
+	  echo 'disconnected';
+     }
+
+     /*
+      * perform a sql query on the database
+      */
+
      public function query($querySql) {
-	  $query = $this->conn->prepare("$querySql");
-	  $query->execute();
-	  $result = $query->fetch(PDO::FETCH_OBJ);
-	  return $result;
+	  echo $querySql;	  
+	  $this->result = $this->conn->query($querySql);
+	  if ($this->result->rowCount() == 0) {
+	       throw new \Exception('No records found');
+	  }	  
+	  return $this->result;
+     }
+
+     /*
+      * insert a row into the User table
+      */
+
+     public function insert($firstname, $lastname) {
+	  $sql = "INSERT INTO User (firstname, lastname) VALUES ('$firstname', '$lastname')";
+	  $count = $this->conn->exec($sql);
+	  if ($count !== false) echo 'Number of rows added: ' . $count;
+     }
+
+     /*
+      * deletes rows from User table having matching first and last names
+      */
+
+     public function delete($firstname, $lastname) {
+	  $sql = "DELETE FROM User WHERE firstname = '$firstname' AND lastname = '$lastname'";
+	  $count = $this->conn->exec($sql);
+	  if ($count !== false) echo 'Number of rows deleted: ' . $count;
+     }
+
+     /*
+      * updates rows replacing first and last names
+      */
+
+     public function update($firstname, $lastname, $newfirst, $newlast) {
+	  $sql = "UPDATE User SET firstname = '$newfirst', lastname = '$newlast' WHERE firstname = '$firstname' AND lastname = '$lastname'";
+	  $count = $this->conn->exec($sql);
+	  if ($count !== false) echo 'Number of rows updated: ' . $count;
      }
 
 }
-
-$newconnection = new PdoDbal('mysql:dbname=weblamp442;host=127.0.0.1', 'root', 'weblamp442');
-
-$testquery = $newconnection->query("SELECT * FROM User");
-var_dump($testquery);
 
 ?>
 

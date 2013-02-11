@@ -17,14 +17,33 @@ class testPdoDbal extends \PHPUnit_Framework_TestCase {
 //	  $password = 'weblamp442';
 
      /*
-      * check whether the database can be successfully connected to
+      * construct class
+      */
+
+//     public function setUpTest() {
+//	  $this->conn = new PdoDbal('mysql:dbname=weblamp442;host=127.0.0.1', 'root', 'weblamp442');
+ //    }
+
+     /*
+      * test that database can be connected to
       */
 
      public function testConnection() {
 	  $conn = new PdoDbal('mysql:dbname=weblamp442;host=127.0.0.1', 'root', 'weblamp442');
-	  $this->assertNotEmpty($conn);
+	  $conn->connect();
+	  $this->assertNotEmpty($conn->connect());
      }
 
+     /*
+      * @depends testConnection
+      */
+
+     public function testQuery() {
+	  $conn = new PdoDbal('mysql:dbname=weblamp442;host=127.0.0.1', 'root', 'weblamp442');
+	  $testquery = $conn->query("SELECT * FROM User");
+	  $this->assertNotEmpty($testquery);
+	  var_dump($testquery);
+     }
 
 
 }
