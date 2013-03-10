@@ -1,0 +1,28 @@
+{
+    "name": "Assignment 3",
+    "description": "WEBLAMP442 Assignment 3",
+    "authors": [
+        {
+            "name": "Clayton Foster",
+            "email": "clayton@fosternet.net"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "3.7.*@dev",
+	"facebook/php-sdk": "dev-master",
+	"slim/slim": "2.*"
+    },
+    "require-dev": {
+        "monolog/monolog": "1.2.1"
+    },
+    "autoload": {
+        "classmap": [
+            "Src/",
+            "Tests/"
+        ]
+    },
+    "config": {
+        "vendor-dir" : "Vendors",
+        "vendor-bin" : "Vendors/bin"
+    }
+}
